@@ -1,0 +1,12 @@
+.content {
+    position: relative;
+    width: calc(100% - 300px);
+    height: calc(100vh - 60px);
+    float: right;
+
+    &::after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}

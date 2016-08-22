@@ -20,3 +20,10 @@ export const toggleTodo = (id) => {
         id
     }
 };
+
+export const getMenuList = (filter) => {
+    return {
+        type: 'GET_MENU_LIST',
+        filter
+    }
+};

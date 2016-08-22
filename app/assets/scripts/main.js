@@ -10,8 +10,8 @@ import App from './components/App'
 let store = createStore(todoApp);
 
 render(
-<Provider store={store}>
-    <App />
+    <Provider store={store}>
+        <App />
     </Provider>,
-    document.getElementById('example')
+    document.getElementById('root')
 );
