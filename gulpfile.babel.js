@@ -13,7 +13,7 @@ import uglify from 'gulp-uglify';
 import buffer from 'vinyl-buffer';
 import htmlmin from 'gulp-htmlmin';
 import bom from 'gulp-bom';
-import reactify from 'reactify';
+import babelify from 'babelify';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -42,15 +42,14 @@ gulp.task('connect', () => {
 gulp.task('scripts', () => {
     return browserify({
         entries: 'app/assets/scripts/main.js', // Only need initial file, browserify finds the deps
-        transform: [reactify], // We want to convert JSX to normal javascript
         debug: true, // Gives us sourcemapping
         cache: {}, packageCache: {}, fullPaths: true // Requirement of watchify
     })
+        .transform(babelify, {presets: ['es2015', 'react']}) // We want to convert JSX to normal javascript
         .bundle()
         .on('error', function(err) { console.error(err); this.emit('end'); })
         .pipe(source('main.js'))
         .pipe(buffer()) // js 壓縮前置準備
-        .pipe($.babel({compact: false})) // ES6 compact: false -> no warning for 100KB succeed
         // .pipe(uglify()) // 壓縮 js
         .pipe(bom()) // 解決中文亂碼
         .pipe(gulp.dest('./dist/assets'))

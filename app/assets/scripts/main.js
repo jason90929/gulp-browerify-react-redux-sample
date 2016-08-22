@@ -1,11 +1,17 @@
 // const jQuery = require('jquery');
 // const $ = jQuery;
-const React = require('react');
-const ReactDOM = require('react-dom');
-const redux = require('redux');
-// const connect = require('react-redux');
-// import { createStore } from 'redux'
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import todoApp from './reducers'
+import App from './components/App'
 
-var test = require('./jsx/test.jsx');
-test();
+let store = createStore(todoApp);
 
+render(
+<Provider store={store}>
+    <App />
+    </Provider>,
+    document.getElementById('example')
+);
