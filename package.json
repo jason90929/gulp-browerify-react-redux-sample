@@ -1,14 +1,14 @@
 {
-  "name": "gulp-react-redux-framework-example",
-  "version": "1.1.0",
-  "description": "Gulp, Npm, jQuery, Bootstrap with ReactJS Redux",
+  "name": "react-redux-gulp-browerify-sample",
+  "version": "1.1.1",
+  "description": "Gulp, Npm, jQuery, Bootstrap with React Redux",
   "main": "main.js",
   "scripts": {
     "test": "start"
   },
   "repository": {
     "type": "git",
-    "url": "gulp-react-redux-framework-example"
+    "url": "react-redux-gulp-browerify-sample"
   },
   "keywords": [
     "ReactJS",
