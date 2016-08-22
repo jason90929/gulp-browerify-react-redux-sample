@@ -1,7 +1,7 @@
 {
   "name": "react-redux-gulp-browerify-sample",
   "version": "1.1.1",
-  "description": "Gulp, Npm, jQuery, Bootstrap with React Redux",
+  "description": "Gulp, Npm, with React Redux",
   "main": "main.js",
   "scripts": {
     "test": "start"
