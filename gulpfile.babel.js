@@ -1,9 +1,7 @@
 import gulp from 'gulp';
 var gulpsync = require('gulp-sync')(gulp);
-// import gulpsync from 'gulp-sync';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import mainBowerFiles from 'main-bower-files';
-import sass from 'gulp-ruby-sass';
 import browserify from 'browserify';
 import browserSync from 'browser-sync';
 import source from 'vinyl-source-stream';
@@ -19,8 +17,8 @@ const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 // 監聽所有項目
-gulp.task('watch', ['scripts', 'scss', 'fonts', 'images', 'html'], () => {
-    gulp.watch('app/assets/scripts/**', ['scripts']);
+gulp.task('watch', ['browserify', 'scss', 'fonts', 'images', 'html'], () => {
+    gulp.watch('app/assets/scripts/**', ['browserify']);
     gulp.watch('app/assets/styles/**', ['scss']);
     gulp.watch('app/assets/fonts/**', ['fonts']);
     gulp.watch('app/assets/images/**', ['images']);
@@ -39,7 +37,7 @@ gulp.task('connect', () => {
 });
 
 // 監聽 app.js
-gulp.task('scripts', () => {
+gulp.task('browserify', () => {
     return browserify({
         entries: 'app/assets/scripts/main.js', // Only need initial file, browserify finds the deps
         debug: true, // Gives us sourcemapping
@@ -54,6 +52,11 @@ gulp.task('scripts', () => {
         .pipe(bom()) // 解決中文亂碼
         .pipe(gulp.dest('./dist/assets'))
         .pipe(reload({stream: true}));
+});
+
+// 壓縮 react 檔案的前置作業
+gulp.task('apply-prod-environment', function() {
+    process.env.NODE_ENV = 'production';
 });
 
 // 監聽 scss
@@ -104,7 +107,7 @@ gulp.task('images', () => {
 gulp.task('html', () => {
     return gulp.src(mainBowerFiles('app/*.html', function (err) {})
         .concat('app/*'))
-    // .pipe(htmlmin({collapseWhitespace: true}))
+        // .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(bom()) // 解決中文亂碼
         .pipe(gulp.dest('dist'))
         .pipe(reload({stream: true}));
@@ -118,7 +121,7 @@ gulp.task('clean', () => {
 
 // 打包所有頁面
 gulp.task('build', gulpsync.sync([
-    'clean', ['scripts', 'scss', 'fonts', 'images', 'html']
+    'clean', ['apply-prod-environment', 'browserify', 'scss', 'fonts', 'images', 'html']
 ]));
 
 // 啟動打包、伺服器後監聽
