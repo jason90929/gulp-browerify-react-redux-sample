@@ -1,6 +1,6 @@
 {
   "name": "gulp-react-redux-framework-example",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Gulp, Npm, jQuery, Bootstrap with ReactJS Redux",
   "main": "main.js",
   "scripts": {
@@ -57,12 +57,13 @@
     "gulp-sync": "^0.1.4",
     "gulp-uglify": "^2.0.0",
     "main-bower-files": "^2.13.1",
+    "reactify": "^1.1.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
     "jquery": "^3.1.0",
-    "react": "^15.3.0",
-    "redux": "^3.5.2"
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
   }
 }

@@ -13,13 +13,14 @@ import uglify from 'gulp-uglify';
 import buffer from 'vinyl-buffer';
 import htmlmin from 'gulp-htmlmin';
 import bom from 'gulp-bom';
+import reactify from 'reactify';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 // 監聽所有項目
-gulp.task('watch', ['browserify', 'scss', 'fonts', 'images', 'html'], () => {
-    gulp.watch('app/assets/scripts/**', ['browserify']);
+gulp.task('watch', ['scripts', 'scss', 'fonts', 'images', 'html'], () => {
+    gulp.watch('app/assets/scripts/**', ['scripts']);
     gulp.watch('app/assets/styles/**', ['scss']);
     gulp.watch('app/assets/fonts/**', ['fonts']);
     gulp.watch('app/assets/images/**', ['images']);
@@ -38,8 +39,13 @@ gulp.task('connect', () => {
 });
 
 // 監聽 app.js
-gulp.task('browserify', () => {
-    return browserify('app/assets/scripts/main.js')
+gulp.task('scripts', () => {
+    return browserify({
+        entries: 'app/assets/scripts/main.js', // Only need initial file, browserify finds the deps
+        transform: [reactify], // We want to convert JSX to normal javascript
+        debug: true, // Gives us sourcemapping
+        cache: {}, packageCache: {}, fullPaths: true // Requirement of watchify
+    })
         .bundle()
         .on('error', function(err) { console.error(err); this.emit('end'); })
         .pipe(source('main.js'))
@@ -113,7 +119,7 @@ gulp.task('clean', () => {
 
 // 打包所有頁面
 gulp.task('build', gulpsync.sync([
-    'clean', ['browserify', 'scss', 'fonts', 'images', 'html']
+    'clean', ['scripts', 'scss', 'fonts', 'images', 'html']
 ]));
 
 // 啟動打包、伺服器後監聽
