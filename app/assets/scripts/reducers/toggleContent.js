@@ -1,9 +1,9 @@
 const getContent = (url) => {
     switch (url) {
         case 'admin-1':
-            return 'aaaaa1';
+            return 'admin-1';
         case 'admin-2':
-            return 'aaaaa2';
+            return 'admin-2';
     }
 };
 

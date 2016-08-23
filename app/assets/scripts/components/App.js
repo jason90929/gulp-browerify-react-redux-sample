@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from './Header';
 import VisibleMenuList from '../containers/VisibleMenuList';
-import Content from './Content';
+import ContentList from './ContentList';
 
 const App = () => (
     <div>
         <Header />
         <VisibleMenuList />
-        <Content />
+        <ContentList />
     </div>
 );
 

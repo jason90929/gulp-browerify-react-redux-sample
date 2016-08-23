@@ -1,12 +1,8 @@
 import React, { PropTypes } from 'react';
 
-const Menu = ({ onClick, active, url = 'javascript:;', text }) => {
-    if (active) {
-        return <li>{text}</li>
-    }
-
+const Menu = ({ active, onClick, url = 'javascript:;', text }) => {
     return (
-        <li onClick={e => {
+        <li className={active ? 'active' : ''} onClick={e => {
             e.preventDefault();
             onClick();
         }}>
