@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getContent } from '../actions';
+import { setContent } from '../actions';
 import Menu from '../components/Menu';
 
 const mapStateToProps = (state, ownProps) => {
@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         onClick: () => {
-            dispatch(getContent(ownProps.filter))
+            dispatch(setContent(ownProps.filter))
         }
     };
 };

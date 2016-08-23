@@ -28,10 +28,10 @@ export const getMenuList = (role) => {
     }
 };
 
-export const toggleContent = (url) => {
+export const setContent = (content) => {
     return {
-        type: 'TOGGLE_CONTENT',
-        url
+        type: 'SET_CONTENT',
+        content
     }
 };
 

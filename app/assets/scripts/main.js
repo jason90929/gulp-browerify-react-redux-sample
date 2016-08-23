@@ -7,26 +7,10 @@ import { createStore } from 'redux'
 import todoApp from './reducers'
 import App from './components/App'
 
-const initialState = {
-    // userRole: 'ADMIN'
-};
+const initialState = {};
 
 window.store = createStore(todoApp, initialState);
 // let store = createStore(todoApp, initialState);
-
-// init user
-// store.dispatch({
-//     type: 'GET_ROLE',
-//     user: {
-//         username: 'Jason'
-//     }
-// });
-
-// init menu list
-// store.dispatch({
-//     type: 'GET_MENU_LIST',
-//     role: store.getState()['userRole']
-// });
 
 render(
     <Provider store={store}>

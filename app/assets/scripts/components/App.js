@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './Header';
 import Aside from './Aside';
-// import VisibleMenuList from '../containers/VisibleMenuList';
 import ContentList from './ContentList';
 import Footer from './Footer';
 
