@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 const Menu = ({ active, children, onClick }) => {
     if (active) {
-        return <li>{children}</li>
+        return <li className="active">{children}</li>
     }
 
     return (

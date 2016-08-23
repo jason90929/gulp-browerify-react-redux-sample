@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Aside from './Aside';
-import ContentList from './ContentList';
+import ContentList from '../containers/ContentList';
 import Footer from './Footer';
 
 const App = () => (

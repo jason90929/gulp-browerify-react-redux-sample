@@ -1,4 +1,10 @@
 .footer {
-    position: relative;
-    display: block;
+    position: fixed;
+    width: 100%;
+    height: $footer-height;
+    line-height: $footer-height;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
 }

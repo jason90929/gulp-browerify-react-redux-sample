@@ -2,32 +2,45 @@ import React from 'react';
 
 import AddTodo from '../containers/AddTodo';
 import VisibleTodoList from '../containers/VisibleTodoList';
+import TodoFilter from './TodoFilter';
 
-const Content = ({ content }) => {
+import About from './About';
+
+const getContent = (content) => {
     switch (content) {
-        case 'todos':
+        case 'INDEX':
             return (
-                <section className="content">
+                <div>
                     <AddTodo />
                     <VisibleTodoList />
-                </section>
+                    <TodoFilter />
+                </div>
             );
-        case 'others':
+        case 'ABOUT':
             return (
-                <section className="content">
-                    HAHAHA
-                </section>
+                <About />
+            );
+        case 'CONTACT':
+            return (
+                'Contact'
+            );
+        case 'PORTFOLIO':
+            return (
+                'Portfolio'
             );
         default:
             return (
-                <section className="content">
-                </section>
+                ''
             );
     }
 };
 
-Content.propTypes = {
-
+const Content = ({ content }) => {
+    return (
+        <section className="content">
+            {getContent(content)}
+        </section>
+    );
 };
 
 export default Content;
