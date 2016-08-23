@@ -1,13 +1,19 @@
 import React, { PropTypes } from 'react';
 
-const Menu = ({ active, onClick, url = 'javascript:;', text }) => {
+const Menu = ({ active, children, onClick }) => {
+    if (active) {
+        return <li>{children}</li>
+    }
+
     return (
-        <li className={active ? 'active' : ''} onClick={e => {
-            e.preventDefault();
-            onClick();
-        }}>
-            <a href={url}>
-                {text}
+        <li>
+            <a href="javascript:;"
+                onClick={e => {
+                    e.preventDefault();
+                    onClick();
+                }}
+            >
+                {children}
             </a>
         </li>
     );
@@ -15,9 +21,8 @@ const Menu = ({ active, onClick, url = 'javascript:;', text }) => {
 
 Menu.propTypes = {
     active: PropTypes.bool.isRequired,
-    onClick: PropTypes.func.isRequired,
-    url: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired
+    children: PropTypes.node.isRequired,
+    onClick: PropTypes.func.isRequired
 };
 
 export default Menu;

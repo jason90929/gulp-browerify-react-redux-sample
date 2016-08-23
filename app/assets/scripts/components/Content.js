@@ -2,7 +2,6 @@ import React from 'react';
 
 import AddTodo from '../containers/AddTodo';
 import VisibleTodoList from '../containers/VisibleTodoList';
-import Footer from './Footer';
 
 const Content = ({ content }) => {
     switch (content) {
@@ -11,7 +10,6 @@ const Content = ({ content }) => {
                 <section className="content">
                     <AddTodo />
                     <VisibleTodoList />
-                    <Footer />
                 </section>
             );
         case 'others':

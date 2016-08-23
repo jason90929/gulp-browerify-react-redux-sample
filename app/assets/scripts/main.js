@@ -15,18 +15,18 @@ window.store = createStore(todoApp, initialState);
 // let store = createStore(todoApp, initialState);
 
 // init user
-store.dispatch({
-    type: 'GET_ROLE',
-    user: {
-        username: 'Jason'
-    }
-});
+// store.dispatch({
+//     type: 'GET_ROLE',
+//     user: {
+//         username: 'Jason'
+//     }
+// });
 
 // init menu list
-store.dispatch({
-    type: 'GET_MENU_LIST',
-    role: store.getState()['userRole']
-});
+// store.dispatch({
+//     type: 'GET_MENU_LIST',
+//     role: store.getState()['userRole']
+// });
 
 render(
     <Provider store={store}>
