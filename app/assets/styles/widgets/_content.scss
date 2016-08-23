@@ -4,10 +4,4 @@
     height: calc(100vh - #{$header-height} - #{$footer-height});
     background-color: #ecedff;
     float: right;
-
-    &::after {
-        content: '';
-        clear: both;
-        display: block;
-    }
 }

@@ -1,0 +1,11 @@
+.main {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - #{$header-height} - #{$footer-height});
+
+    &::after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}
