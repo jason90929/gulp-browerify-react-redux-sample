@@ -48,7 +48,7 @@ gulp.task('browserify', () => {
         .on('error', function(err) { console.error(err); this.emit('end'); })
         .pipe(source('main.js'))
         .pipe(buffer()) // js 壓縮前置準備
-        .pipe(uglify()) // 壓縮 js
+        // .pipe(uglify()) // 壓縮 js
         .pipe(bom()) // 解決中文亂碼
         .pipe(gulp.dest('./dist/assets'))
         .pipe(reload({stream: true}));

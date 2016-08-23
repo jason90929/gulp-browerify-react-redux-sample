@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { toggleTodo } from '../actions';
+import { toggleContent } from '../actions';
 import MenuList from '../components/MenuList';
 
 const mapStateToProps = (state) => {
@@ -8,8 +8,18 @@ const mapStateToProps = (state) => {
     };
 };
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onMenuClick: (url) => {
+            console.log(url);
+            // dispatch(toggleContent(url));
+        }
+    };
+};
+
 const VisibleMenuList = connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(MenuList);
 
 export default VisibleMenuList;

@@ -1,32 +1,32 @@
 const adminMenu = [
     {
-        url: undefined,
+        url: 'admin-1',
         text: '管理者的選單1'
     },
     {
-        url: undefined,
+        url: 'admin-2',
         text: '管理者的選單2'
     }
 ];
 
 const userMenu = [
     {
-        url: undefined,
+        url: 'user-1',
         text: '使用者的選單1'
     },
     {
-        url: undefined,
+        url: 'user-2',
         text: '使用者的選單2'
     }
 ];
 
 const guestMenu = [
     {
-        url: undefined,
+        url: 'guest-1',
         text: '訪客的選單1'
     },
     {
-        url: undefined,
+        url: 'guest-2',
         text: '訪客的選單2'
     }
 ];
@@ -48,7 +48,7 @@ const menuList = (state = 'GUEST', action) => {
         case 'GET_MENU_LIST':
             return menus(action.role);
         default:
-            return menus();
+            return state;
     }
 };
 

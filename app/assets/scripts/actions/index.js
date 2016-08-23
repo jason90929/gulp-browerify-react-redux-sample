@@ -28,6 +28,13 @@ export const getMenuList = (role) => {
     }
 };
 
+export const toggleContent = (url) => {
+    return {
+        type: 'TOGGLE_CONTENT',
+        url
+    }
+};
+
 export const getRole = (user) => {
     return {
         type: 'GET_ROLE',

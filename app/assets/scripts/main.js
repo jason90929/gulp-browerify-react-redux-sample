@@ -8,9 +8,10 @@ import todoApp from './reducers'
 import App from './components/App'
 
 const initialState = {
-    // role: 'ADMIN'
+    // userRole: 'ADMIN'
 };
 
+// window.store = createStore(todoApp, initialState);
 let store = createStore(todoApp, initialState);
 
 // init user
@@ -26,8 +27,6 @@ store.dispatch({
     type: 'GET_MENU_LIST',
     role: store.getState()['userRole']
 });
-
-console.log(store.getState());
 
 render(
     <Provider store={store}>
