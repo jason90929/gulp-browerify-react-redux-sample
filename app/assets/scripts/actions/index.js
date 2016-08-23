@@ -21,9 +21,16 @@ export const toggleTodo = (id) => {
     }
 };
 
-export const getMenuList = (filter) => {
+export const getMenuList = (role) => {
     return {
         type: 'GET_MENU_LIST',
-        filter
+        role
+    }
+};
+
+export const getRole = (user) => {
+    return {
+        type: 'GET_ROLE',
+        user
     }
 };

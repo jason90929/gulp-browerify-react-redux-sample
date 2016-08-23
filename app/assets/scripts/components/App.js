@@ -1,12 +1,12 @@
 import React from 'react';
 import Header from './Header';
-import Menu from './Menu';
+import VisibleMenuList from '../containers/VisibleMenuList';
 import Content from './Content';
 
 const App = () => (
     <div>
         <Header />
-        <Menu />
+        <VisibleMenuList />
         <Content />
     </div>
 );
