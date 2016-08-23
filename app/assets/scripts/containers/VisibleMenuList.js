@@ -11,8 +11,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onMenuClick: (url) => {
-            console.log(url);
-            // dispatch(toggleContent(url));
+            dispatch(toggleContent(url));
         }
     };
 };

@@ -43,7 +43,7 @@ const menus = (role = 'GUEST') => {
     }
 };
 
-const menuList = (state = 'GUEST', action) => {
+const menuList = (state = [], action) => {
     switch (action.type) {
         case 'GET_MENU_LIST':
             return menus(action.role);

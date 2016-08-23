@@ -11,8 +11,8 @@ const initialState = {
     // userRole: 'ADMIN'
 };
 
-// window.store = createStore(todoApp, initialState);
-let store = createStore(todoApp, initialState);
+window.store = createStore(todoApp, initialState);
+// let store = createStore(todoApp, initialState);
 
 // init user
 store.dispatch({

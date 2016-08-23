@@ -13,12 +13,11 @@ const MenuList = ({ menus, onMenuClick }) => (
                 )}
             </ul>
         </nav>
-     </aside>
+    </aside>
 );
 
 MenuList.propTypes = {
     menus: PropTypes.arrayOf(PropTypes.shape({
-        active: PropTypes.bool.isRequired,
         url: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired
     }).isRequired).isRequired,

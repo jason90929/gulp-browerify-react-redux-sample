@@ -1,19 +1,25 @@
 import React, { PropTypes } from 'react';
 
-const Menu = ({ onClick, active, url = 'javascript:;', text }) => (
-    <li className={active ? 'active' : ''}
-        onClick={e => {
+const Menu = ({ onClick, active, url = 'javascript:;', text }) => {
+    if (active) {
+        return <li>{text}</li>
+    }
+
+    return (
+        <li onClick={e => {
             e.preventDefault();
-            onClick();}}>
-        <a href={url}>
-            {text}
-        </a>
-    </li>
-);
+            onClick();
+        }}>
+            <a href={url}>
+                {text}
+            </a>
+        </li>
+    );
+};
 
 Menu.propTypes = {
-    onClick: PropTypes.func.isRequired,
     active: PropTypes.bool.isRequired,
+    onClick: PropTypes.func.isRequired,
     url: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired
 };
